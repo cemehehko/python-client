@@ -22,8 +22,9 @@ def on_message(ws, message):
     data = json.loads(message)
     if data['name']=='login_ack':
 
+      # channel: "l1", "l2" or "trades"
       subscribe = '{"name": "subscribe", \
-                   "channel": "l1", \ # "l1", "l2" or "trades"
+                   "channel": "l1", \
                    "symbols": ["BTC/USD"], \
                    "mode": "SnapshotAndOnline"}'
       ws.send(subscribe)
